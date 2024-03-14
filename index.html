@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing Ball Game</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        canvas {
+            display: block;
+            margin: 0 auto;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+        }
+        #sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #f2f2f2;
+            border-left: 1px solid #ccc;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        .image {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex">
+        <div class="grow h-screen flex justify-center items-center bg-yellow-200">
+            <canvas id="gameCanvas" width="1000" height="600"></canvas>
+        </div>
+        <div id="sidebar" class="p-2">
+            <div>
+                <div class="rounded-md overflow-hidden my-2">
+                    <img class="image w-full" src="images/jungle.jpg" alt="Image 1" onclick="setBackground('images/jungle.jpg')">
+                </div>
+                <div class="rounded-md overflow-hidden my-2">
+                    <img class="image w-full" src="images/sea.jpg" alt="Image 1" onclick="setBackground('images/sea.jpg')">
+                </div>
+                <div class="rounded-md overflow-hidden my-2">
+                    <img class="image w-full" src="images/moon.jpg" alt="Image 1" onclick="setBackground('images/moon.jpg')">
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="./app.js"></script>
+    <script>
+        var canvas = document.getElementById("gameCanvas");
+        var ctx = canvas.getContext("2d");
+
+        function setBackground(imageUrl) {
+            canvas.style.backgroundImage = "url('" + imageUrl + "')";
+            canvas.style.backgroundSize = "cover";
+        canvas.style.backgroundRepeat = "no-repeat";
+        }
+    </script>
+</body>
+</html>
